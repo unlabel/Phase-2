@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "SpaceX",
+    "type": "Aerospace manufacturer",
+    "address": "Rocket Road, Hawthorne, CA, USA",
+    "image": "https://www.spacex.com/static/images/share.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tesla",
+    "type": "Automobile manufacturer",
+    "address": "3500 Deer Creek Road, Palo Alto, CA, USA",
+    "image": "https://www.tesla.com/ns_videos/homepage-social.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Microsoft",
+    "type": "IT company",
+    "address": "One Microsoft Way, Redmond, WA, USA",
+    "image": "https://static.vecteezy.com/system/resources/previews/019/017/460/original/microsoft-transparent-logo-free-png.png"
+  },
+  {
+    "id": 4,
+    "name": "Burger Master",
+    "type": "Restaurant",
+    "address": "Some address, Bellevue, WA, USA",
+    "image": "https://play-lh.googleusercontent.com/yqJbGxCXSkgMmQ3aWeQC5PGykbqRF5a7lzHC9sZDX7moPW2Ty3J5P_ThL7ga6pjkxy5H=w600-h300-pc0xffffff-pd"
+  },
+  {
+    "id": 5,
+    "name": "Apple",
+    "type": "IT company",
+    "address": "One Apple Park Way, Cupertino, CA, USA",
+    "image": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202109210821"
+  },
+  {
+    "id": 6,
+    "name": "Star Diner",
+    "type": "Restaurant",
+    "address": "Some address, San Francisco, CA, USA",
+    "image": "https://img.cdn4dd.com/cdn-cgi/image/fit=contain,width=1200,height=672,format=auto/https://doordash-static.s3.amazonaws.com/media/restaurant/cover/StarDiner2524OregonOH.png"
+  }
+]
