@@ -15,15 +15,24 @@ app.get('/', (request, resolve) => {
   resolve.send('Компании');
 });
 
-app.get('/auth/register', function (request, response) {
+app.get('/auth/register', (request, response) => {
   response.sendFile(__dirname + '/index.html');
 });
-app.post('/auth/register', urlencodedParser, function (request, response) {
-  if (!request.body) return response.sendStatus(400);
-  console.log(request.body);
-  response.send(
-    `${request.body.userName} - ${request.body.password} - ${request.body.repeatPassword}`
-  );
+
+app.post('/api/auth/register', urlencodedParser, (request, response) => {
+  const { email, password, password2 } = request.body;
+
+  if (password !== password2) {
+    return response.status(400).json({
+      success: false,
+      message: 'Пароли не совпадают'
+    });
+  }
+
+  response.status(200).json({
+    success: true,
+    message: `Пользователь ${email} зарегистрирован.`
+  });
 });
 
 module.exports = { app };
