@@ -6,6 +6,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 const { existsSync } = require('fs');
 const fs = require('fs/promises');
+const app = require('../app');
 
 const baseURL = 'http://localhost:3000';
 

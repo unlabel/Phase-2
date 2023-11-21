@@ -3,6 +3,7 @@
  */
 
 const fetch = require('node-fetch');
+const app = require('../app');
 
 const parser = new DOMParser();
 const baseURL = 'http://localhost:3000';
