@@ -7,6 +7,8 @@ const Layout = require("./src/components/pages/Layout");
 const ReactDOMServer = require("react-dom/server");
 const MainPage = require("./src/components/pages/MainPage");
 const RegisterPage = require("./src/components/pages/RegisterPage");
+const CompanyPage = require("./src/components/pages/CompanyPage");
+const companiesData = require("./test-companies.json");
 
 const app = express();
 const PORT = 3000;
@@ -24,6 +26,48 @@ app.get("/auth/register", (req, res) => {
   const html = ReactDOMServer.renderToString(component);
   res.send(html);
 });
+
+app.get("/companies/:id", (req, res) => {
+  const companyId = parseInt(req.params.id);
+  const company = companiesData.find((c) => c.id === companyId);
+
+  if (!company) {
+    return res.status(404).send("Компания не найдена");
+  }
+
+  const component = ReactDOMServer.renderToString(CompanyPage({ company }));
+  res.send(`<!DOCTYPE html>
+             <html>
+               <head>
+                 <title>${company.name}</title>
+               </head>
+               <body>
+                 ${component}
+               </body>
+             </html>`);
+});
+
+// app.get("/companies/:id", async (req, res) => {
+//   try {
+//     const rawData = await fs.readFile("./test-companies.json", "utf8");
+//     const companies = JSON.parse(rawData);
+
+//     const companyId = parseInt(req.params.id);
+
+//     const company = companies.find((c) => c.id === companyId);
+
+//     if (company) {
+//       const component = React.createElement(CompanyCard, { company });
+//       const html = ReactDOMServer.renderToString(component);
+//       res.send(html);
+//     } else {
+//       res.status(404).send("Компания не найдена");
+//     }
+//   } catch (error) {
+//     console.log("Ошибка: ", error);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
 
 // app.get("/auth/register", (request, response) => {
 //   response.sendFile(__dirname + "/index.html");
@@ -67,8 +111,8 @@ app.get("/auth/register", (req, res) => {
 //   const searchQuery = req.query.search;
 
 //   try {
-//     const rawData = await fs.readFile("./test-companies.json", "utf8");
-//     const companies = JSON.parse(rawData);
+// const rawData = await fs.readFile("./test-companies.json", "utf8");
+// const companies = JSON.parse(rawData);
 
 //     const filteredCompanies = companies.filter((company) =>
 //     company.name.toLowerCase().includes(searchQuery.toLowerCase())
