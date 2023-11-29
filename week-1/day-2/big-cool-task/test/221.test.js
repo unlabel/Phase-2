@@ -58,7 +58,7 @@ describe('Регистрация', () => {
       expect(data).toEqual({ success: false, message: 'Пароль должен быть не менее 8 символов' });
     });
 
-    describe.skip('Flaky tests, do not run', () => {
+    describe('Flaky tests, do not run', () => {
       // Эти тесты нестабильные (flaky).
       // Пока они зависят от состояния `app.locals`.
       // Интересуешься тестированием? Умеешь изолировать тесты?
